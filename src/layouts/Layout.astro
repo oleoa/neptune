@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
 ---
 
 <!doctype html>
@@ -11,7 +12,8 @@ import "../styles/global.css";
 		<meta name="generator" content={Astro.generator} />
 		<title>Neptune</title>
 	</head>
-	<body>
+	<body class="font-serif">
+		<Navbar />
 		<slot />
 	</body>
 </html>

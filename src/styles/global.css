@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+@theme {
+  --color-cadet: #1f2255;
+  --color-bondi: #2990b5;
+  --color-snow: #fffafa;
+  --color-rich-black: #010b13;
+}
