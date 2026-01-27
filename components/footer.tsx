@@ -1,0 +1,20 @@
+export default function Footer() {
+  return (
+    <div className="flex justify-between px-24 py-8 w-full bg-deepest-blue">
+
+      <div className="flex flex-col gap-4">
+        <h2 className="text-xl font-bold">NEPTUNE</h2>
+        <p>
+          Empowering businesses through the <br />
+          intelligent application of next- <br />
+          generation AIntechnologies.
+        </p>
+        <p className="text-xs text-gray">
+          @2026 Neptune AI Agency. All rights reserved.
+        </p>
+      </div>
+
+      <div></div>
+    </div>
+  )
+}

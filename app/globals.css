@@ -4,6 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
+  --color-deepest-blue: #091725;
   --color-deep-blue: #0b1c2d;
   --color-bright-blue: #36b0df;
   --color-purple: #7885cc;
