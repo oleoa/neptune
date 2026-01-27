@@ -12,7 +12,7 @@ export default function Navbar() {
             height={50}
             alt="Neptune Logo"
           />
-          <h1 className="text-2xl">Neptune</h1>
+          <h1 className="text-2xl font-black italic">Neptune</h1>
         </div>
         <div className="flex gap-4 items-center justify-center">
           <p>Services</p>

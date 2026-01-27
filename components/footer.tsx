@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <div className="flex justify-between px-24 py-8 w-full bg-deepest-blue">
+    <div className="flex justify-between px-32 py-8 w-full bg-deepest-blue">
 
       <div className="flex flex-col gap-4">
         <h2 className="text-xl font-bold">NEPTUNE</h2>
