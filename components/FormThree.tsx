@@ -17,7 +17,7 @@ export default function ThreeJsWallpaper({
   const clockRef = useRef(new THREE.Clock());
   const animationRef = useRef<number>(0);
 
-  // Create circular sprite texture so points render as round "balls"
+  // Create circular sprite texture so points render as round "bubbles"
   const createCircleTexture = () => {
     const size = 256;
     const canvas = document.createElement("canvas");
@@ -37,7 +37,7 @@ export default function ThreeJsWallpaper({
       radius * 0.1,
       center,
       center,
-      radius,
+      radius
     );
     gradient.addColorStop(0, "rgba(255,255,255,1)");
     gradient.addColorStop(0.4, "rgba(255,255,255,0.9)");
@@ -74,7 +74,7 @@ export default function ThreeJsWallpaper({
       45,
       rect.width / rect.height,
       0.1,
-      100,
+      100
     );
     camera.position.set(0, 0, 12);
     camera.lookAt(0, 0, 0);
@@ -102,6 +102,7 @@ export default function ThreeJsWallpaper({
     const particleCount = 900;
     const positions = new Float32Array(particleCount * 3);
     const colors = new Float32Array(particleCount * 3);
+    const velocities = new Float32Array(particleCount * 3); // Add velocities
 
     const colorA = new THREE.Color("#112f44");
     const colorB = new THREE.Color("#216686");
@@ -110,10 +111,10 @@ export default function ThreeJsWallpaper({
     for (let i = 0; i < particleCount; i++) {
       const i3 = i * 3;
 
-      // Random position
-      positions[i3 + 0] = (Math.random() - 0.5) * 30;
-      positions[i3 + 1] = (Math.random() - 0.5) * 20;
-      positions[i3 + 2] = (Math.random() - 0.5) * 30;
+      // Initial positions - start lower on screen
+      positions[i3 + 0] = (Math.random() - 0.5) * 30; // x
+      positions[i3 + 1] = (Math.random() - 0.5) * 15 - 15; // y (start lower)
+      positions[i3 + 2] = (Math.random() - 0.5) * 30; // z
 
       // Blend between three colors
       const t = Math.random();
@@ -123,19 +124,24 @@ export default function ThreeJsWallpaper({
       colors[i3 + 0] = colorA.r * t + colorB.r * u + colorC.r * v;
       colors[i3 + 1] = colorA.g * t + colorB.g * u + colorC.g * v;
       colors[i3 + 2] = colorA.b * t + colorB.b * u + colorC.b * v;
+
+      // Random upward velocities with slight horizontal drift
+      velocities[i3 + 0] = (Math.random() - 0.5) * 0.02; // slight x drift
+      velocities[i3 + 1] = 0.015 + Math.random() * 0.015; // consistent upward y speed
+      velocities[i3 + 2] = (Math.random() - 0.5) * 0.01; // slight z drift
     }
 
     const particleGeometry = new THREE.BufferGeometry();
     particleGeometry.setAttribute(
       "position",
-      new THREE.BufferAttribute(positions, 3),
+      new THREE.BufferAttribute(positions, 3)
     );
     particleGeometry.setAttribute(
       "color",
-      new THREE.BufferAttribute(colors, 3),
+      new THREE.BufferAttribute(colors, 3)
     );
 
-    // Circular sprite texture for round particles
+    // Circular sprite texture for round bubbles
     const circleTexture = createCircleTexture();
 
     const particleMaterial = new THREE.PointsMaterial({
@@ -152,6 +158,12 @@ export default function ThreeJsWallpaper({
     scene.add(particles);
     particlesRef.current = particles;
 
+    // Store velocities in geometry for animation access
+    (particleGeometry as any).velocities = new THREE.BufferAttribute(
+      velocities,
+      3
+    );
+
     // Resize observer
     const resizeObserver = new ResizeObserver((entries) => {
       const rect = entries[0].contentRect;
@@ -166,13 +178,38 @@ export default function ThreeJsWallpaper({
       animationRef.current = requestAnimationFrame(animate);
       const elapsed = clockRef.current.getElapsedTime();
 
-      // Faster particle drift, independent of mouse
+      // Update particle positions with upward movement
       const posAttr = particlesRef.current!.geometry.attributes
         .position as THREE.BufferAttribute;
+      const velAttr = (particlesRef.current!.geometry as any)
+        .velocities as THREE.BufferAttribute;
+
       for (let i = 0; i < particleCount; i++) {
-        const z0 = posAttr.getZ(i);
-        posAttr.setZ(i, z0 + Math.sin(elapsed * 0.9 + i * 0.06) * 0.01);
+        const i3 = i * 3;
+
+        // Update position with velocity
+        posAttr.setX(i, posAttr.getX(i) + velAttr.getX(i));
+        posAttr.setY(i, posAttr.getY(i) + velAttr.getY(i));
+        posAttr.setZ(i, posAttr.getZ(i) + velAttr.getZ(i));
+
+        // Wrap around screen edges for continuous flow
+        if (posAttr.getY(i) > 15) {
+          posAttr.setY(i, -15);
+        }
+        if (posAttr.getX(i) > 18 || posAttr.getX(i) < -18) {
+          posAttr.setX(i, -posAttr.getX(i));
+        }
+        if (posAttr.getZ(i) > 18 || posAttr.getZ(i) < -18) {
+          posAttr.setZ(i, -posAttr.getZ(i));
+        }
+
+        // Optional: slight wobble effect
+        posAttr.setY(
+          i,
+          posAttr.getY(i) + Math.sin(elapsed * 2 + i * 0.05) * 0.005
+        );
       }
+
       posAttr.needsUpdate = true;
 
       renderer.render(scene, camera);
@@ -198,7 +235,7 @@ export default function ThreeJsWallpaper({
   return (
     <canvas
       ref={canvasRef}
-      className={`fixed inset-0 w-screen h-screen z-[-1] ${className}`}
+      className={`absolute inset-0 w-full h-full z-0 ${className}`}
     />
   );
 }
