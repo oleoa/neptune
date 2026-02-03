@@ -7,12 +7,12 @@ import Actions from "@/components/Actions";
 export default function Home() {
   return (
     <main className="text-white [&>div]:px-32">
-      <section className="relative flex flex-col items-center justify-center gap-8 h-screen overflow-hidden">
+      <section className="relative flex flex-col items-center justify-center gap-8 min-h-screen">
         <Three />
 
-        <div className="relative z-10 flex flex-col items-center gap-8 px-32">
+        <div className="relative z-10 flex flex-col items-center gap-8 lg:px-32 px-6">
           <RevealOnScroll delay={0}>
-            <h1 className="text-6xl text-center font-bold">
+            <h1 className="lg:text-6xl text-4xl text-center font-bold">
               Stop Losing Leads.
               <br />
               Start Converting in Under 2 Minutes.

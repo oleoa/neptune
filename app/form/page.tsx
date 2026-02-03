@@ -9,16 +9,18 @@ import { toast } from "sonner";
 import FormThree from "@/components/FormThree";
 
 export default function Form() {
-  const [companyName, setCompanyName] = useState("");
-  const [companySize, setCompanySize] = useState("");
-  const [companyEmail, setCompanyEmail] = useState("");
+  const [name, setName] = useState("");
+  const [size, setSize] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [company, setCompany] = useState("");
   const [message, setMessage] = useState("");
 
   const handleSubmit = async () => {
     toast.loading("Submitting form...");
     await fetch("https://oleoa.app.n8n.cloud/webhook/neptune", {
       method: "POST",
-      body: JSON.stringify({ companyName, companySize, companyEmail, message }),
+      body: JSON.stringify({ name, size, email, phone, company, message }),
     }).then((res) => {
       if (res.ok) {
         toast.success("Form submitted successfully");
@@ -41,41 +43,67 @@ export default function Form() {
         <FieldSet>
           <FieldGroup className="flex flex-col gap-4 [&>div>input]:bg-deepest-blue [&>div>textarea]:bg-deepest-blue">
             <Field>
-              <FieldLabel htmlFor="companyName">Company Name</FieldLabel>
+              <FieldLabel htmlFor="name">Name</FieldLabel>
               <Input
-                id="companyName"
+                id="name"
                 type="text"
-                name="companyName"
-                placeholder="What is the name of your company?"
+                name="name"
+                placeholder="What is your name?"
                 required
-                value={companyName}
-                onChange={(e) => setCompanyName(e.target.value)}
+                value={name}
+                onChange={(e) => setName(e.target.value)}
                 autoComplete="organization"
               />
             </Field>
             <Field>
-              <FieldLabel htmlFor="companySize">Company Size</FieldLabel>
+              <FieldLabel htmlFor="company">Company</FieldLabel>
               <Input
-                id="companySize"
-                type="number"
-                name="companySize"
-                placeholder="How many employees do you have?"
+                id="company"
+                type="text"
+                name="company"
+                placeholder="What is the name of your company?"
                 required
-                value={companySize}
-                onChange={(e) => setCompanySize(e.target.value)}
+                value={company}
+                onChange={(e) => setCompany(e.target.value)}
+                autoComplete="organization"
               />
             </Field>
             <Field>
-              <FieldLabel htmlFor="companyEmail">Company Email</FieldLabel>
+              <FieldLabel htmlFor="size">Company Size</FieldLabel>
               <Input
-                id="companyEmail"
+                id="size"
+                type="number"
+                name="size"
+                placeholder="How many employees does your company have?"
+                required
+                value={size}
+                onChange={(e) => setSize(e.target.value)}
+              />
+            </Field>
+            <Field>
+              <FieldLabel htmlFor="email">Email</FieldLabel>
+              <Input
+                id="email"
                 type="email"
-                name="companyEmail"
+                name="email"
                 placeholder="What is the preferred email for our communication?"
                 required
-                value={companyEmail}
-                onChange={(e) => setCompanyEmail(e.target.value)}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 autoComplete="email"
+              />
+            </Field>
+            <Field>
+              <FieldLabel htmlFor="phone">Phone</FieldLabel>
+              <Input
+                id="phone"
+                type="tel"
+                name="phone"
+                placeholder="What is the preferred phone number for our communication?"
+                required
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                autoComplete="tel"
               />
             </Field>
             <Field>

@@ -6,7 +6,7 @@ import Actions from "./Actions";
 
 export default function SolutionSection() {
   return (
-    <section className="flex flex-col items-center justify-center gap-20 px-32 bg-deepest-blue w-full py-28">
+    <section className="flex flex-col items-center justify-center gap-20 lg:px-32 px-6 bg-deepest-blue w-full py-28">
       <div className="flex flex-col items-center gap-6 max-w-3xl text-center">
         <RevealOnScroll delay={0}>
           <div className="flex flex-col items-center gap-6">

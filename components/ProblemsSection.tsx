@@ -26,7 +26,7 @@ const PROBLEMS = [
 
 export default function ProblemsSection() {
   return (
-    <section className="relative flex flex-col items-center justify-center gap-16 px-32 bg-deep-blue w-full pt-28 pb-48">
+    <section className="relative flex flex-col items-center justify-center gap-16 lg:px-32 px-6 bg-deep-blue w-full pt-28 pb-48">
       <div className="flex flex-col items-center gap-6 max-w-3xl text-center">
         <RevealOnScroll delay={0}>
           <span className="inline-block px-4 py-1.5 rounded-full bg-bright-blue/20 text-bright-blue text-sm font-medium tracking-wide uppercase">
