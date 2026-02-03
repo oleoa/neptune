@@ -1,7 +1,8 @@
-import { Button } from "@/components/ui/button";
 import RevealOnScroll from "@/components/RevealOnScroll";
 import Three from "@/components/HeroThree";
-import Link from "next/link";
+import ProblemsSection from "@/components/ProblemsSection";
+import SolutionSection from "@/components/SolutionSection";
+import Actions from "@/components/Actions";
 
 export default function Home() {
   return (
@@ -27,17 +28,7 @@ export default function Home() {
             </p>
           </RevealOnScroll>
           <RevealOnScroll delay={0.2}>
-            <div className="flex gap-4">
-              <Link href="/form">
-                <Button>Get In Touch</Button>
-              </Link>
-              <Link
-                href="https://calendly.com/leonardo-neptunesolutions/30min"
-                target="_blank"
-              >
-                <Button variant={"secondary"}>Book Free Lead Audit</Button>
-              </Link>
-            </div>
+            <Actions />
           </RevealOnScroll>
         </div>
 
@@ -59,44 +50,9 @@ export default function Home() {
         </div>
       </section>
 
-      <section
-        id="our-services"
-        className="flex flex-col items-center justify-center gap-8 px-32 bg-deep-blue w-full py-28"
-      >
-        <h1 className="text-5xl font-bold text-center">
-          Your Sales Team Is
-          <br />
-          Drowning in Manual Work
-        </h1>
-        <p className="text-gray">
-          Most B2B SaaS companies lose 40-60% of their leads to manual processes
-          that can&apos;t keep up.
-        </p>
-        <div className="grid grid-cols-3 gap-8">
-          <div className="flex flex-col gap-4 border border-bright-blue p-4 rounded-lg">
-            <h2 className="text-2xl font-bold">AI Strategy & Consulting</h2>
-            <p>
-              We help you navigate the AI landscape with <br />
-              strategic roadmaps tailored to your business <br />
-              goals and market position
-            </p>
-          </div>
-          <div className="flex flex-col gap-4 border border-bright-blue p-4 rounded-lg">
-            <h2 className="text-2xl font-bold">AI Agents</h2>
-            <p>
-              Custom made AI Agents that work 24/7 answering your clients <br />
-              and bringing more revenue with a scalable arquiteture
-            </p>
-          </div>
-          <div className="flex flex-col gap-4 border border-bright-blue p-4 rounded-lg">
-            <h2 className="text-2xl font-bold">Data Analytics & Insights</h2>
-            <p>
-              Turn raw data into actionable intelligence with <br />
-              our advanced analytics and visualization services
-            </p>
-          </div>
-        </div>
-      </section>
+      <ProblemsSection />
+
+      <SolutionSection />
     </main>
   );
 }
