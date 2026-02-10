@@ -3,12 +3,14 @@ import Three from "@/components/HeroThree";
 import ProblemsSection from "@/components/ProblemsSection";
 import SolutionSection from "@/components/SolutionSection";
 import Actions from "@/components/Actions";
+import ElevenLabs from "@/components/ElevenLabs";
 
 export default function Home() {
   return (
     <main className="text-white [&>div]:px-32">
       <section className="relative flex flex-col items-center justify-center gap-8 min-h-screen">
         <Three />
+        <ElevenLabs />
 
         <div className="relative z-10 flex flex-col items-center gap-8 lg:px-32 px-6">
           <RevealOnScroll delay={0}>
