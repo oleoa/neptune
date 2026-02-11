@@ -1,15 +1,14 @@
 export default function Footer() {
   return (
-    <div className="flex justify-between lg:px-32 px-6 py-8 w-full bg-deepest-blue border-t border-bright-blue">
+    <div className="flex justify-between lg:px-32 px-6 py-8 w-full border-t border-yellow">
       <div className="flex flex-col gap-4">
-        <h2 className="text-xl font-bold">NEPTUNE SOLUTIONS</h2>
+        <h2 className="text-xl font-bold">STRUTURA</h2>
         <p>
-          Empowering businesses through the <br />
-          intelligent application of next- <br />
-          generation AI technologies.
+          Escalando negócios com AI <br />
+          de próxima geração.
         </p>
         <p className="text-xs text-gray">
-          @2026 Neptune Solutions. All rights reserved.
+          @2026 Strutura. Todos os direitos reservados.
         </p>
       </div>
       <div></div>

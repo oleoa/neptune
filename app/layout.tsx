@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Neptune",
-  description: "Transform your business with AI Innovation",
+  title: "Strutura",
+  description: "Transforme o seu negócio com Inovação em IA",
 };
 
 export default function RootLayout({
@@ -26,9 +26,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt">
       <body
-        className={`${lora.variable} ${geistMono.variable} antialiased bg-deepest-blue text-white`}
+        className={`${lora.variable} ${geistMono.variable} antialiased`}
       >
         <Navbar />
         {children}

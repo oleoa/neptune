@@ -8,10 +8,10 @@ export default function Actions() {
       <Calendly />
       <Link href="/form">
         <Button
-          className="bg-deep-blue text-white hover:bg-deep-blue/80"
+          variant="outline"
           size="xl"
         >
-          Get In Touch
+          Entrar em Contacto
         </Button>
       </Link>
     </div>

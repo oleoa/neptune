@@ -4,14 +4,14 @@ import Link from "next/link";
 export default function Calendly({ size = "xl" }: { size?: "default" | "xl" }) {
   return (
     <Link
-      href="https://calendly.com/leonardo-neptunesolutions/30min"
+      href="https://calendly.com/strutura-ai/30min"
       target="_blank"
     >
       <Button
-        className="bg-bright-blue text-white hover:bg-bright-blue/80"
+        className="bg-yellow text-black font-bold hover:bg-yellow/80"
         size={size}
       >
-        Book Free Lead Audit
+        Agendar Auditoria Gratuita
       </Button>
     </Link>
   );

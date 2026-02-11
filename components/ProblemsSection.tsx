@@ -5,42 +5,42 @@ import RevealOnScroll from "./RevealOnScroll";
 
 const PROBLEMS = [
   {
-    text: "Leads fill out forms, but sit in your inbox for hours (or days) before anyone follows up",
+    text: "Leads preenchem formulários, mas ficam na sua caixa de entrada por horas (ou dias) antes de alguém dar seguimento",
   },
   {
-    text: "Your sales team wastes 20+ hours/week copying data from forms into your CRM",
+    text: "A sua equipa de vendas perde mais de 20 horas/semana a copiar dados de formulários para o CRM",
   },
   {
-    text: "Hot leads go cold while reps manually research company info on LinkedIn",
+    text: "Leads quentes esfriam enquanto os vendedores pesquisam manualmente informações da empresa no LinkedIn",
   },
   {
-    text: "Lead scoring is guesswork—reps chase unqualified prospects instead of real buyers",
+    text: "A classificação de leads é adivinhação — os vendedores perseguem prospects não qualificados em vez de compradores reais",
   },
   {
-    text: "Leads are scattered across 5 different tools with no single source of truth",
+    text: "Os leads estão espalhados por 5 ferramentas diferentes sem uma única fonte de verdade",
   },
   {
-    text: "Your fastest competitors respond in minutes. You respond in hours.",
+    text: "Os seus concorrentes mais rápidos respondem em minutos. Você responde em horas.",
   },
 ];
 
 export default function ProblemsSection() {
   return (
-    <section className="relative flex flex-col items-center justify-center gap-16 lg:px-32 px-6 bg-deep-blue w-full pt-28 pb-48">
-      <div className="flex flex-col items-center gap-6 max-w-3xl text-center">
+    <section className="relative flex flex-col items-center justify-center gap-16 lg:px-32 px-6 bg-blue w-full pt-28 pb-48">
+      <div className="flex flex-col items-center gap-6 max-w-3xl text-center text-white">
         <RevealOnScroll delay={0}>
-          <span className="inline-block px-4 py-1.5 rounded-full bg-bright-blue/20 text-bright-blue text-sm font-medium tracking-wide uppercase">
-            Sound familiar?
+          <span className="inline-block px-4 py-1.5 rounded-full bg-blue/20 text-blue text-sm font-medium tracking-wide uppercase">
+            Parece familiar?
           </span>
         </RevealOnScroll>
         <RevealOnScroll delay={0.1}>
           <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-            The lead chaos every SaaS team knows
+            O caos de leads que toda equipa SaaS conhece
           </h2>
         </RevealOnScroll>
         <RevealOnScroll delay={0.2}>
           <p className="text-lg text-white/80">
-            These problems cost you deals, time, and revenue—every single day.
+            Estes problemas custam-lhe negócios, tempo e receita — todos os dias.
           </p>
         </RevealOnScroll>
       </div>
@@ -78,7 +78,7 @@ export default function ProblemsSection() {
           <path
             fill="currentColor"
             d="M1440,80 C1080,32 360,96 0,64 L0,96 L1440,96 Z"
-            className="text-deepest-blue"
+            className="text-white"
           />
         </svg>
       </div>

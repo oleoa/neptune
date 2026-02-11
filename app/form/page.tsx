@@ -6,7 +6,6 @@ import { Field, FieldGroup, FieldLabel, FieldSet } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
-import FormThree from "@/components/FormThree";
 
 export default function Form() {
   const [name, setName] = useState("");
@@ -17,38 +16,38 @@ export default function Form() {
   const [message, setMessage] = useState("");
 
   const handleSubmit = async () => {
-    toast.loading("Submitting form...");
+    toast.loading("A enviar formulário...");
     await fetch("https://oleoa.app.n8n.cloud/webhook/neptune", {
       method: "POST",
       body: JSON.stringify({ name, size, email, phone, company, message }),
     }).then((res) => {
       if (res.ok) {
-        toast.success("Form submitted successfully");
+        toast.success("Formulário enviado com sucesso");
       } else {
-        toast.error("Failed to submit form");
+        toast.error("Falha ao enviar formulário");
       }
     });
   };
 
   return (
-    <main className="relative flex justify-center items-center w-screen h-screen bg-deepest-blue">
-      <FormThree />
-      <div className="relative z-10 flex flex-col gap-4 w-1/2">
-        <h1 className="text-2xl font-bold">Contact Us</h1>
+    <main className="relative flex justify-center items-center w-screen pb-12 pt-24">
+
+      <div className="relative z-10 flex flex-col gap-4 w-1/2 py-4">
+        <h1 className="text-2xl font-bold">Contacte-nos</h1>
         <p className="text-gray">
-          We are a team of experts in the field of AI and web development.
+          Somos uma equipa de especialistas na área de IA e desenvolvimento web.
           <br />
-          We are here to help you with your needs.
+          Estamos aqui para ajudá-lo com as suas necessidades.
         </p>
         <FieldSet>
-          <FieldGroup className="flex flex-col gap-4 [&>div>input]:bg-deepest-blue [&>div>textarea]:bg-deepest-blue">
+          <FieldGroup className="flex flex-col gap-4 [&>div>input]:border-yellow [&>div>textarea]:border-yellow">
             <Field>
-              <FieldLabel htmlFor="name">Name</FieldLabel>
+              <FieldLabel htmlFor="name">Nome</FieldLabel>
               <Input
                 id="name"
                 type="text"
                 name="name"
-                placeholder="What is your name?"
+                placeholder="Qual é o seu nome?"
                 required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -56,12 +55,12 @@ export default function Form() {
               />
             </Field>
             <Field>
-              <FieldLabel htmlFor="company">Company</FieldLabel>
+              <FieldLabel htmlFor="company">Empresa</FieldLabel>
               <Input
                 id="company"
                 type="text"
                 name="company"
-                placeholder="What is the name of your company?"
+                placeholder="Qual é o nome da sua empresa?"
                 required
                 value={company}
                 onChange={(e) => setCompany(e.target.value)}
@@ -69,12 +68,12 @@ export default function Form() {
               />
             </Field>
             <Field>
-              <FieldLabel htmlFor="size">Company Size</FieldLabel>
+              <FieldLabel htmlFor="size">Tamanho da Empresa</FieldLabel>
               <Input
                 id="size"
                 type="number"
                 name="size"
-                placeholder="How many employees does your company have?"
+                placeholder="Quantos funcionários tem a sua empresa?"
                 required
                 value={size}
                 onChange={(e) => setSize(e.target.value)}
@@ -86,7 +85,7 @@ export default function Form() {
                 id="email"
                 type="email"
                 name="email"
-                placeholder="What is the preferred email for our communication?"
+                placeholder="Qual é o email preferido para a nossa comunicação?"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -94,12 +93,12 @@ export default function Form() {
               />
             </Field>
             <Field>
-              <FieldLabel htmlFor="phone">Phone</FieldLabel>
+              <FieldLabel htmlFor="phone">Telefone</FieldLabel>
               <Input
                 id="phone"
                 type="tel"
                 name="phone"
-                placeholder="What is the preferred phone number for our communication?"
+                placeholder="Qual é o número de telefone preferido para a nossa comunicação?"
                 required
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
@@ -107,11 +106,11 @@ export default function Form() {
               />
             </Field>
             <Field>
-              <FieldLabel htmlFor="message">Message</FieldLabel>
+              <FieldLabel htmlFor="message">Mensagem</FieldLabel>
               <Textarea
                 id="message"
                 name="message"
-                placeholder="What is the problem you are facing?"
+                placeholder="Qual é o problema que está a enfrentar?"
                 required
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
@@ -119,8 +118,8 @@ export default function Form() {
             </Field>
           </FieldGroup>
         </FieldSet>
-        <Button type="submit" onClick={handleSubmit} variant="secondary">
-          Submit
+        <Button type="submit" onClick={handleSubmit} className="bg-yellow hover:bg-yellow/80">
+          Enviar
         </Button>
       </div>
     </main>
