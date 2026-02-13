@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import Calendly from "./Calendly";
+import Calendly from "./Cal";
 
 export default function Navbar() {
   return (

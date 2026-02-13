@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Button } from "./ui/button";
-import Calendly from "./Calendly";
+import Calendly from "./Cal";
 
 export default function Actions() {
   return (

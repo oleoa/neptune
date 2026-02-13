@@ -1,10 +1,10 @@
 import { Button } from "./ui/button";
 import Link from "next/link";
 
-export default function Calendly({ size = "xl" }: { size?: "default" | "xl" }) {
+export default function Cal({ size = "xl" }: { size?: "default" | "xl" }) {
   return (
     <Link
-      href="https://calendly.com/strutura-ai/30min"
+      href="https://cal.eu/strutura/discovery"
       target="_blank"
     >
       <Button
