@@ -49,8 +49,8 @@ export default function ProblemsSection() {
         {PROBLEMS.map((problem, i) => (
           <RevealOnScroll key={i} delay={0.05 * (i % 3)}>
             <div
-              className="group flex gap-4 p-6 rounded-xl border border-white/10 bg-white/5 
-                         hover:bg-white/10 hover:border-bright-blue/30 transition-all duration-300
+              className="group flex gap-4 p-6 rounded-xl border border-white/10 bg-snow/5 
+                         hover:bg-snow/10 hover:border-bright-blue/30 transition-all duration-300
                          backdrop-blur-sm"
             >
               <div className="shrink-0 mt-0.5">

@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="pt">
       <body
-        className={`${lora.variable} ${geistMono.variable} antialiased`}
+        className={`${lora.variable} ${geistMono.variable} bg-snow antialiased`}
       >
         <Navbar />
         {children}

@@ -1,6 +1,6 @@
 export default function AutomaticPage() {
   return (
-    <div className="py-16 flex flex-col justify-center w-screen items-center bg-white text-gray-900">
+    <div className="py-16 flex flex-col justify-center w-screen items-center bg-snow text-gray-900">
       
       {/* Header */}
       <div className="text-center py-16">
@@ -60,7 +60,7 @@ export default function AutomaticPage() {
           </div>
 
           {/* ROI Calculation */}
-          <div className="bg-white/80 p-6 rounded-lg mb-8 border border-cyan-200 shadow-md shadow-cyan-50">
+          <div className="bg-snow/80 p-6 rounded-lg mb-8 border border-cyan-200 shadow-md shadow-cyan-50">
             <h3 className="text-2xl font-semibold pb-4 text-cyan-600">Retorno sobre Investimento:</h3>
             <div className="grid md:grid-cols-3 gap-4 text-gray-600">
               <div>
@@ -142,7 +142,7 @@ export default function AutomaticPage() {
           </div>
 
           {/* ROI Dashboard */}
-          <div className="bg-white/80 p-6 rounded-lg pb-8 pt-8 border border-purple-200 shadow-md shadow-purple-50">
+          <div className="bg-snow/80 p-6 rounded-lg pb-8 pt-8 border border-purple-200 shadow-md shadow-purple-50">
             <h3 className="text-2xl font-semibold pb-4 text-purple-600">Retorno sobre Investimento:</h3>
             <p className="text-gray-600 pb-2">20 horas/semana poupadas × €10/hora = <span className="text-emerald-600 font-bold">€800/mês</span></p>
             <p className="text-sm text-gray-500">Inclui: Planejamento + Coordenação + Procura de informação - Erros + Melhor gestão</p>
@@ -169,7 +169,6 @@ export default function AutomaticPage() {
               <h3 className="text-2xl font-bold pb-4 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent text-center">Dashboard Operações</h3>
               <div className="text-center">
                 <div className="text-4xl font-bold pb-2 bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">€1.500</div>
-                <div className="text-gray-500 pb-2">+ IVA</div>
                 <div className="text-sm text-gray-400 pb-6">Entrega estimada: 2-3 semanas</div>
               </div>
               <ul className="space-y-3 text-gray-600 pb-6">
@@ -217,7 +216,6 @@ export default function AutomaticPage() {
               <h3 className="text-2xl font-bold pb-4 bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent text-center">Chatbot AI</h3>
               <div className="text-center">
                 <div className="text-4xl font-bold pb-2 bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent">€5.000</div>
-                <div className="text-gray-500 pb-2">+ IVA</div>
                 <div className="text-sm text-gray-400 pb-6">Entrega estimada: 3-4 semanas</div>
               </div>
               <ul className="space-y-3 text-gray-600 pb-6">
@@ -255,7 +253,7 @@ export default function AutomaticPage() {
 
           {/* Combined Package */}
           <div className="group relative bg-gradient-to-br from-green-100 via-emerald-50 to-teal-100 p-8 rounded-2xl border-2 border-green-400 backdrop-blur-sm transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-green-300/50 hover:border-green-500">
-            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-green-600 to-emerald-600 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg z-20">
+            <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-green-600 to-emerald-600 text-white px-4 py-1.5 rounded-full text-xs font-bold shadow-lg z-20 whitespace-nowrap">
               10% DESCONTO
             </div>
             <div className="absolute inset-0 bg-gradient-to-t from-green-200/30 to-transparent rounded-2xl"></div>
@@ -268,7 +266,6 @@ export default function AutomaticPage() {
               <h3 className="text-2xl font-bold pb-4 bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent text-center">Pacote Completo</h3>
               <div className="text-center">
                 <div className="text-4xl font-bold pb-2 bg-gradient-to-r from-green-600 to-emerald-600 bg-clip-text text-transparent">€5.850</div>
-                <div className="text-gray-500 pb-2">+ IVA</div>
                 <div className="text-sm text-gray-400 pb-6">Entrega estimada: 5-7 semanas</div>
               </div>
               <ul className="space-y-3 text-gray-600 pb-6">

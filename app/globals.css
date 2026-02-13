@@ -4,7 +4,7 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-blue: #537DA8;
+  --color-snow: #F7F7F7;
   --color-yellow: #E9D73A;
 }
 

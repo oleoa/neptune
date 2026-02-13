@@ -90,7 +90,7 @@ export default function SolutionSection() {
 
           {/* Column 2: AI-Powered Scoring */}
           <RevealOnScroll delay={0.15}>
-            <div className="flex flex-col h-full p-8 rounded-2xl border border-white/10 bg-white/5 hover:border-blue/30 transition-all duration-300">
+            <div className="flex flex-col h-full p-8 rounded-2xl border border-white/10 bg-snow/5 hover:border-blue/30 transition-all duration-300">
               <div className="flex items-center gap-3 mb-6">
                 <div className="p-2.5 rounded-xl bg-blue/20">
                   <Bot className="w-6 h-6 text-blue" strokeWidth={2} />
@@ -143,7 +143,7 @@ export default function SolutionSection() {
 
           {/* Column 3: Sync & Alert */}
           <RevealOnScroll delay={0.2}>
-            <div className="flex flex-col h-full p-8 rounded-2xl border border-white/10 bg-white/5 hover:border-blue/30 transition-all duration-300">
+            <div className="flex flex-col h-full p-8 rounded-2xl border border-white/10 bg-snow/5 hover:border-blue/30 transition-all duration-300">
               <div className="flex items-center gap-3 mb-6">
                 <div className="p-2.5 rounded-xl bg-blue/20">
                   <Send className="w-6 h-6 text-blue" strokeWidth={2} />
