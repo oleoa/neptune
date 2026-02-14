@@ -1,7 +1,25 @@
+"use client";
+
+import posthog from "posthog-js";
+
 export default function AutomaticPage() {
+  const handleWhatsAppClick = () => {
+    posthog.capture("whatsapp_prototype_clicked", {
+      phone_number: "+351938342970",
+      destination_url: "https://web.whatsapp.com/send?phone=+351938342970",
+    });
+  };
+
+  const handleExternalLinkClick = (toolName: string, toolUrl: string) => {
+    posthog.capture("external_link_clicked", {
+      tool_name: toolName,
+      destination_url: toolUrl,
+    });
+  };
+
   return (
     <div className="py-16 flex flex-col justify-center w-screen items-center bg-snow text-gray-900">
-      
+
       {/* Header */}
       <div className="text-center py-16">
         <h1 className="text-5xl font-bold pb-6 bg-gradient-to-r from-blue-600 via-cyan-500 to-teal-500 bg-clip-text text-transparent">
@@ -85,11 +103,12 @@ export default function AutomaticPage() {
           <div className="text-center bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-lg border border-green-200 shadow-md shadow-green-50">
             <h3 className="text-xl font-semibold pb-3 text-gray-900">Teste o Protótipo Agora</h3>
             <p className="text-gray-600 pb-4">Envie mensagem para o WhatsApp e experimente</p>
-            <a 
+            <a
               href="https://web.whatsapp.com/send?phone=+351938342970"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg transition-colors"
+              onClick={handleWhatsAppClick}
             >
               +351 938 342 970
             </a>
@@ -356,11 +375,12 @@ export default function AutomaticPage() {
             },
           ].map((tech, index) => (
             <div key={index} className={`${tech.bg} p-4 rounded-lg text-center border shadow-sm`}>
-              <a 
-                href={tech.url} 
-                target="_blank" 
+              <a
+                href={tech.url}
+                target="_blank"
                 rel="noopener noreferrer"
                 className={`${tech.color} font-semibold hover:opacity-80 transition-opacity inline-block`}
+                onClick={() => handleExternalLinkClick(tech.name, tech.url)}
               >
                 {tech.name}
               </a>
