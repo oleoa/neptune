@@ -15,9 +15,86 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const siteUrl = "https://strutura.ai";
+
 export const metadata: Metadata = {
-  title: "Strutura",
-  description: "Transforme o seu negócio com Inovação em IA",
+  metadataBase: new URL(siteUrl),
+  title: {
+    default: "Strutura — Automação com IA para Empresas",
+    template: "%s | Strutura",
+  },
+  description:
+    "Automatize processos com IA de próxima geração. Captação de leads, qualificação automática, relatórios e integração com CRM — escale sem aumentar a sua equipa.",
+  keywords: [
+    "automação com IA",
+    "inteligência artificial para empresas",
+    "automação de processos",
+    "captação de leads",
+    "CRM com IA",
+    "Strutura",
+    "Portugal",
+  ],
+  authors: [{ name: "Leonardo Abreu de Paulo", url: siteUrl }],
+  creator: "Leonardo Abreu de Paulo",
+  publisher: "Strutura",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
+  alternates: {
+    canonical: siteUrl,
+    languages: { "pt-PT": siteUrl },
+  },
+  openGraph: {
+    type: "website",
+    locale: "pt_PT",
+    url: siteUrl,
+    siteName: "Strutura",
+    title: "Strutura — Automação com IA para Empresas",
+    description:
+      "Automatize processos com IA de próxima geração. Captação de leads, qualificação automática, relatórios e integração com CRM — escale sem aumentar a sua equipa.",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Strutura — Automação com IA para Empresas",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Strutura — Automação com IA para Empresas",
+    description:
+      "Automatize processos com IA de próxima geração. Escale sem aumentar a sua equipa.",
+    images: ["/og-image.png"],
+  },
+  verification: {
+    google: "", // TODO: adicionar o token de verificação do Google Search Console
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Strutura",
+  url: siteUrl,
+  logo: `${siteUrl}/logo.png`,
+  description:
+    "Automação com IA de próxima geração para escalar empresas sem aumentar a equipa.",
+  founder: {
+    "@type": "Person",
+    name: "Leonardo Abreu de Paulo",
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "customer support",
+    availableLanguage: ["Portuguese"],
+  },
+  sameAs: [
+    // TODO: adicionar os URLs dos perfis de redes sociais
+  ],
 };
 
 export default function RootLayout({
@@ -26,7 +103,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt">
+    <html lang="pt-PT">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
         className={`${lora.variable} ${geistMono.variable} bg-snow antialiased`}
       >

@@ -6,6 +6,7 @@ import { Field, FieldGroup, FieldLabel, FieldSet } from "@/components/ui/field";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
+import posthog from "posthog-js";
 
 export default function Form() {
   const [name, setName] = useState("");
@@ -17,16 +18,51 @@ export default function Form() {
 
   const handleSubmit = async () => {
     toast.loading("A enviar formulário...");
-    await fetch("https://oleoa.app.n8n.cloud/webhook/neptune", {
-      method: "POST",
-      body: JSON.stringify({ name, size, email, phone, company, message }),
-    }).then((res) => {
+    try {
+      const res = await fetch("https://oleoa.app.n8n.cloud/webhook/neptune", {
+        method: "POST",
+        body: JSON.stringify({ name, size, email, phone, company, message }),
+      });
+
       if (res.ok) {
         toast.success("Formulário enviado com sucesso");
+
+        // Track successful form submission
+        posthog.capture("contact_form_submitted", {
+          company_name: company,
+          company_size: size ? parseInt(size) : undefined,
+          has_message: message.length > 0,
+        });
+
+        // Identify the user by email for future tracking
+        posthog.identify(email, {
+          email: email,
+          name: name,
+          phone: phone,
+          company: company,
+          company_size: size ? parseInt(size) : undefined,
+        });
       } else {
         toast.error("Falha ao enviar formulário");
+
+        // Track form submission error
+        posthog.capture("contact_form_error", {
+          error_type: "submission_failed",
+          status_code: res.status,
+        });
       }
-    });
+    } catch (error) {
+      toast.error("Falha ao enviar formulário");
+
+      // Capture exception for error tracking
+      posthog.captureException(error);
+
+      // Track form submission error
+      posthog.capture("contact_form_error", {
+        error_type: "network_error",
+        error_message: error instanceof Error ? error.message : "Unknown error",
+      });
+    }
   };
 
   return (

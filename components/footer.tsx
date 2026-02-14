@@ -8,7 +8,7 @@ export default function Footer() {
           de próxima geração.
         </p>
         <p className="text-xs text-gray">
-          @2026 Strutura. Todos os direitos reservados.
+          Leonardo Abreu de Paulo @ 2026. Todos os direitos reservados.
         </p>
       </div>
       <div></div>
