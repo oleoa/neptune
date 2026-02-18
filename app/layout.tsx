@@ -3,6 +3,7 @@ import { Lora, Geist_Mono } from "next/font/google";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { Toaster } from "@/components/ui/sonner";
+import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
 const lora = Lora({
@@ -103,20 +104,27 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-PT">
+    <html lang="pt-PT" suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var s=localStorage.getItem('theme');var p=window.matchMedia('(prefers-color-scheme: dark)').matches;if(s==='dark'||(s===null&&p)){document.documentElement.classList.add('dark')}})()`,
+          }}
+        />
       </head>
       <body
-        className={`${lora.variable} ${geistMono.variable} bg-snow antialiased`}
+        className={`${lora.variable} ${geistMono.variable} bg-background antialiased`}
       >
-        <Navbar />
-        {children}
-        <Toaster />
-        <Footer />
+        <ThemeProvider>
+          <Navbar />
+          {children}
+          <Toaster />
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   );

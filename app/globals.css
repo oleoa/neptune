@@ -4,8 +4,9 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
-  --color-snow: #F7F7F7;
-  --color-yellow: #E9D73A;
+  --color-snow: #f7f7f7;
+  --color-yellow: #e9d73a;
+  --color-dark: #1a1a1a;
 }
 
 @theme inline {
@@ -118,6 +119,12 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+}
+
+.no-transitions,
+.no-transitions * {
+  transition: none !important;
+  animation: none !important;
 }
 
 @layer base {
