@@ -4,45 +4,24 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 interface ThemeContextType {
   isDark: boolean;
-  toggleTheme: () => void;
 }
 
-const ThemeContext = createContext<ThemeContextType>({
-  isDark: false,
-  toggleTheme: () => {},
-});
+const ThemeContext = createContext<ThemeContextType>({ isDark: false });
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [isDark, setIsDark] = useState(false);
   const [initialized, setInitialized] = useState(false);
 
-  // Read stored preference or system preference on mount
   useEffect(() => {
-    const stored = localStorage.getItem("theme");
-    if (stored === "dark") {
-      setIsDark(true);
-    } else if (stored === "light") {
-      setIsDark(false);
-    } else {
-      setIsDark(window.matchMedia("(prefers-color-scheme: dark)").matches);
-    }
+    setIsDark(window.matchMedia("(prefers-color-scheme: dark)").matches);
     setInitialized(true);
-  }, []);
 
-  // Listen for system preference changes (only when no manual override is stored)
-  useEffect(() => {
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
-    const handleChange = (e: MediaQueryListEvent) => {
-      if (!localStorage.getItem("theme")) {
-        setIsDark(e.matches);
-      }
-    };
+    const handleChange = (e: MediaQueryListEvent) => setIsDark(e.matches);
     mediaQuery.addEventListener("change", handleChange);
     return () => mediaQuery.removeEventListener("change", handleChange);
   }, []);
 
-  // Sync class to DOM — skip until preference is known to avoid removing
-  // the dark class the inline script set before React hydrated
   useEffect(() => {
     if (!initialized) return;
     const root = document.documentElement;
@@ -57,16 +36,8 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
     );
   }, [isDark, initialized]);
 
-  const toggleTheme = () => {
-    setIsDark((prev) => {
-      const next = !prev;
-      localStorage.setItem("theme", next ? "dark" : "light");
-      return next;
-    });
-  };
-
   return (
-    <ThemeContext.Provider value={{ isDark, toggleTheme }}>
+    <ThemeContext.Provider value={{ isDark }}>
       {children}
     </ThemeContext.Provider>
   );

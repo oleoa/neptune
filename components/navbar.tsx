@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
-import { ThemeToggle } from "./theme-toggle";
 import { useTheme } from "./theme-provider";
 
 function scrollToSection(id: string) {
@@ -58,12 +57,10 @@ export default function Navbar() {
           >
             Produtos
           </button>
-          <ThemeToggle />
         </nav>
 
         {/* Mobile controls */}
         <div className="flex lg:hidden items-center gap-4">
-          <ThemeToggle />
           <button
             onClick={() => setIsOpen((prev) => !prev)}
             aria-label="Abrir menu"
