@@ -52,7 +52,10 @@ const PRODUCTS = [
 
 export default function ProductsSection() {
   return (
-    <section id="produtos" className="flex flex-col items-center justify-center gap-20 lg:px-32 px-6 w-full py-28">
+    <section
+      id="produtos"
+      className="flex flex-col items-center justify-center gap-20 lg:px-32 px-6 w-full py-28"
+    >
       {/* Cabeçalho da secção */}
       <div className="flex flex-col items-center gap-6 max-w-3xl text-center">
         <RevealOnScroll delay={0}>
@@ -139,7 +142,7 @@ export default function ProductsSection() {
       </div>
 
       {/* CTA final */}
-      <RevealOnScroll delay={0.1}>
+      <RevealOnScroll delay={0}>
         <div className="flex flex-col items-center gap-5 text-center">
           <p className="text-foreground/55 text-lg max-w-md">
             Pronto para automatizar? Fala connosco e mostramos como funciona
