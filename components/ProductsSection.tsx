@@ -55,7 +55,7 @@ export default function ProductsSection() {
     <section
       id="produtos"
       className="flex flex-col items-center justify-center gap-20 lg:px-32 px-6 w-full py-28"
-      style={{ background: "#0D0D0D" }}
+      style={{ background: "var(--section-products-bg)" }}
     >
       {/* Cabeçalho da secção */}
       <div className="flex flex-col items-center gap-6 max-w-3xl text-center">
@@ -84,7 +84,9 @@ export default function ProductsSection() {
           <RevealOnScroll key={i} delay={0.1 + i * 0.1}>
             <div
               className="group relative flex flex-col h-full p-8 rounded-2xl
-                         border border-foreground/10
+                         bg-white dark:bg-transparent
+                         border border-foreground/8 dark:border-foreground/10
+                         shadow-[0_2px_16px_rgba(0,0,0,0.06)] dark:shadow-none
                          hover:border-yellow/35 hover:bg-yellow/[0.02]
                          transition-all duration-300 overflow-hidden"
             >

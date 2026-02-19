@@ -5,7 +5,7 @@ import RevealOnScroll from "./RevealOnScroll";
 const STEPS = [
   {
     number: "01",
-    title: "Auditoria Gratuita",
+    title: "Sessão de Descoberta",
     description:
       "Numa call de 30 minutos, analisamos os teus processos e identificamos onde a automação gera mais impacto. Sem compromisso.",
   },
@@ -28,7 +28,7 @@ export default function HowItWorks() {
     <section
       id="como-funciona"
       className="relative flex flex-col items-center justify-center gap-20 lg:px-32 px-6 w-full py-28"
-      style={{ background: "#111111" }}
+      style={{ background: "var(--section-how-bg)" }}
     >
       {/* Header */}
       <div className="flex flex-col items-center gap-6 max-w-3xl text-center">
@@ -112,7 +112,7 @@ export default function HowItWorks() {
           ))}
         </div>
       </div>
-      <div style={{ position: "absolute", bottom: 0, left: 0, width: "100%", height: "80px", background: "linear-gradient(to bottom, transparent, #0D0D0D)", pointerEvents: "none" }} />
+      <div style={{ position: "absolute", bottom: 0, left: 0, width: "100%", height: "80px", background: "linear-gradient(to bottom, transparent, var(--section-how-fade))", pointerEvents: "none" }} />
     </section>
   );
 }

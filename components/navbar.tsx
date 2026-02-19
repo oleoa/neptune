@@ -24,7 +24,7 @@ export default function Navbar() {
 
   return (
     <div className="fixed top-0 left-0 w-full z-50">
-      <div className="flex justify-between items-center lg:px-32 px-6 w-full backdrop-blur-xl border-b border-yellow h-20">
+      <div className="flex justify-between items-center lg:px-32 px-6 w-full backdrop-blur-xl border-b border-black/8 dark:border-yellow bg-white/80 dark:bg-transparent h-20">
         <Link href="/">
           <Image
             src={
@@ -76,7 +76,7 @@ export default function Navbar() {
 
       {/* Mobile dropdown */}
       {isOpen && (
-        <div className="lg:hidden flex flex-col gap-4 px-6 py-6 backdrop-blur-xl border-b border-yellow">
+        <div className="lg:hidden flex flex-col gap-4 px-6 py-6 backdrop-blur-xl border-b border-black/8 dark:border-yellow bg-white/80 dark:bg-transparent">
           <button
             onClick={() => handleNav("inicio")}
             className="text-sm font-medium hover:text-yellow transition-colors text-left"
