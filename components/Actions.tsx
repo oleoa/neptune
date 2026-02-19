@@ -13,13 +13,10 @@ export default function Actions() {
   };
 
   return (
-    <div className="flex lg:flex-row flex-col gap-4 items-center justify-center">
+    <div className="flex items-center gap-4">
       <Cal />
       <Link href="/form" onClick={handleContactClick}>
-        <Button
-          variant="outline"
-          size="xl"
-        >
+        <Button variant="outline" size="xl">
           Entrar em Contacto
         </Button>
       </Link>

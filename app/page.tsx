@@ -7,7 +7,10 @@ import HowItWorks from "@/components/HowItWorks";
 export default function Home() {
   return (
     <main className="[&>div]:px-32">
-      <section id="inicio" className="relative flex flex-col items-center justify-center gap-8 min-h-screen">
+      <section
+        id="inicio"
+        className="relative flex flex-col items-center justify-center gap-8 min-h-screen"
+      >
         <ElevenLabs />
 
         <div className="relative z-10 flex flex-col items-center gap-8 lg:px-32 px-6">
@@ -19,12 +22,10 @@ export default function Home() {
             </h1>
           </RevealOnScroll>
           <RevealOnScroll delay={0.1}>
-            <p className="text-center text-xl">
-              Captura automática de leads, qualificação com IA e sincronização instantânea com CRM
+            <p className="text-center" style={{ fontSize: "22px" }}>
+              Automação personalizada para empresas portuguesas.
               <br />
-              Resumos, relatórios automáticos e integrações com todas as ferramentas
-              <br />
-              A sua equipa pode se concentrar no que importa
+              Auditoria gratuita, sem compromisso.
             </p>
           </RevealOnScroll>
           <RevealOnScroll delay={0.2}>
