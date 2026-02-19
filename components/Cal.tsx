@@ -22,7 +22,7 @@ export default function Cal({ size = "xl" }: { size?: "default" | "xl" }) {
         className="bg-yellow text-black font-bold hover:bg-yellow/80"
         size={size}
       >
-        Agendar Auditoria Gratuita
+        Agendar Sessão de Descoberta
       </Button>
     </Link>
   );
