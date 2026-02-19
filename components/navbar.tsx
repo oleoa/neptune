@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import { ThemeToggle } from "./theme-toggle";
 import { useTheme } from "./theme-provider";
 
@@ -14,6 +15,12 @@ function scrollToSection(id: string) {
 
 export default function Navbar() {
   const { isDark } = useTheme();
+  const [isOpen, setIsOpen] = useState(false);
+
+  function handleNav(id: string) {
+    setIsOpen(false);
+    scrollToSection(id);
+  }
 
   return (
     <div className="fixed top-0 left-0 w-full z-50">
@@ -30,7 +37,9 @@ export default function Navbar() {
             alt="Strutura Logo"
           />
         </Link>
-        <nav className="flex items-center gap-8">
+
+        {/* Desktop nav */}
+        <nav className="hidden lg:flex items-center gap-8">
           <button
             onClick={() => scrollToSection("inicio")}
             className="text-sm font-medium hover:text-yellow transition-colors"
@@ -51,7 +60,43 @@ export default function Navbar() {
           </button>
           <ThemeToggle />
         </nav>
+
+        {/* Mobile controls */}
+        <div className="flex lg:hidden items-center gap-4">
+          <ThemeToggle />
+          <button
+            onClick={() => setIsOpen((prev) => !prev)}
+            aria-label="Abrir menu"
+            className="text-2xl hover:text-yellow transition-colors"
+          >
+            {isOpen ? "✕" : "☰"}
+          </button>
+        </div>
       </div>
+
+      {/* Mobile dropdown */}
+      {isOpen && (
+        <div className="lg:hidden flex flex-col gap-4 px-6 py-6 backdrop-blur-xl border-b border-yellow">
+          <button
+            onClick={() => handleNav("inicio")}
+            className="text-sm font-medium hover:text-yellow transition-colors text-left"
+          >
+            Início
+          </button>
+          <button
+            onClick={() => handleNav("como-funciona")}
+            className="text-sm font-medium hover:text-yellow transition-colors text-left"
+          >
+            Como funciona
+          </button>
+          <button
+            onClick={() => handleNav("produtos")}
+            className="text-sm font-medium hover:text-yellow transition-colors text-left"
+          >
+            Produtos
+          </button>
+        </div>
+      )}
     </div>
   );
 }
