@@ -55,6 +55,7 @@ export default function ProductsSection() {
     <section
       id="produtos"
       className="flex flex-col items-center justify-center gap-20 lg:px-32 px-6 w-full py-28"
+      style={{ background: "#0D0D0D" }}
     >
       {/* Cabeçalho da secção */}
       <div className="flex flex-col items-center gap-6 max-w-3xl text-center">

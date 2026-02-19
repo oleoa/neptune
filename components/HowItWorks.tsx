@@ -27,7 +27,8 @@ export default function HowItWorks() {
   return (
     <section
       id="como-funciona"
-      className="flex flex-col items-center justify-center gap-20 lg:px-32 px-6 w-full py-28"
+      className="relative flex flex-col items-center justify-center gap-20 lg:px-32 px-6 w-full py-28"
+      style={{ background: "#111111" }}
     >
       {/* Header */}
       <div className="flex flex-col items-center gap-6 max-w-3xl text-center">
@@ -111,6 +112,7 @@ export default function HowItWorks() {
           ))}
         </div>
       </div>
+      <div style={{ position: "absolute", bottom: 0, left: 0, width: "100%", height: "80px", background: "linear-gradient(to bottom, transparent, #0D0D0D)", pointerEvents: "none" }} />
     </section>
   );
 }
