@@ -21,23 +21,9 @@ const PRODUCTS = [
       "Reduz a carga de suporte em até 70%. Respostas em segundos, a qualquer hora.",
   },
   {
-    Icon: Star,
-    number: "02",
-    title: "Google Reviews com IA",
-    description:
-      "Agente de IA que envia follow-ups automáticos após o serviço, no momento certo, e converte clientes satisfeitos em reviews públicas no Google.",
-    useCases: [
-      "Follow-ups personalizados via WhatsApp, SMS ou e-mail",
-      "Alertas instantâneos para novas reviews — reage em minutos, não dias",
-      "Link direto para a página de review do Google",
-    ],
-    benefit:
-      "Mais reviews positivos, sem esforço da tua equipa. A tua reputação online cresce sozinha.",
-  },
-  {
     Icon: Filter,
-    number: "03",
-    title: "Direção & Qualificação de Leads",
+    number: "02",
+    title: "Geração & Qualificação de Leads",
     description:
       "Sistemas automatizados que captam, filtram e qualificam leads em tempo real — sem intervenção humana. O teu funil trabalha 24/7.",
     useCases: [
@@ -50,7 +36,7 @@ const PRODUCTS = [
   },
   {
     Icon: Settings2,
-    number: "04",
+    number: "03",
     title: "Automação de Processos Internos",
     description:
       "Fluxos de trabalho automatizados que eliminam tarefas repetitivas — desde relatórios e faturação até gestão de dados e notificações.",
@@ -93,7 +79,7 @@ export default function ProductsSection() {
       </div>
 
       {/* Cards de produto — grid 1→3 colunas */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full max-w-7xl">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-7xl">
         {PRODUCTS.map((product, i) => (
           <RevealOnScroll key={i} delay={0.1 + i * 0.1}>
             <div

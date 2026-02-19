@@ -1,17 +1,6 @@
-"use client";
-
-import posthog from "posthog-js";
 import { Check } from "lucide-react";
 
 export default function AutomaticPage() {
-  const handleWhatsAppClick = () => {
-    posthog.capture("whatsapp_prototype_clicked", {
-      phone_number: "+351938342970",
-      destination_url: "https://web.whatsapp.com/send?phone=+351938342970",
-    });
-  };
-
-
   return (
     <div className="min-h-screen bg-background text-foreground">
       <div className="max-w-6xl mx-auto px-6 lg:px-32 pt-32 pb-20 flex flex-col gap-20">
@@ -208,7 +197,6 @@ export default function AutomaticPage() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold py-3 px-6 rounded-xl transition-colors"
-              onClick={handleWhatsAppClick}
             >
               +351 938 342 970
             </a>
