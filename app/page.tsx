@@ -1,6 +1,7 @@
 import RevealOnScroll from "@/components/RevealOnScroll";
 import Actions from "@/components/Actions";
 import ElevenLabs from "@/components/ElevenLabs";
+import ProductsSection from "@/components/ProductsSection";
 
 export default function Home() {
   return (
@@ -30,6 +31,7 @@ export default function Home() {
           </RevealOnScroll>
         </div>
       </section>
+      <ProductsSection />
     </main>
   );
 }
