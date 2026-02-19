@@ -5,6 +5,13 @@ import Link from "next/link";
 import { ThemeToggle } from "./theme-toggle";
 import { useTheme } from "./theme-provider";
 
+function scrollToSection(id: string) {
+  const el = document.getElementById(id);
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth" });
+  }
+}
+
 export default function Navbar() {
   const { isDark } = useTheme();
 
@@ -23,7 +30,21 @@ export default function Navbar() {
             alt="Strutura Logo"
           />
         </Link>
-        <ThemeToggle />
+        <nav className="flex items-center gap-8">
+          <button
+            onClick={() => scrollToSection("inicio")}
+            className="text-sm font-medium hover:text-yellow transition-colors"
+          >
+            Início
+          </button>
+          <button
+            onClick={() => scrollToSection("produtos")}
+            className="text-sm font-medium hover:text-yellow transition-colors"
+          >
+            Produtos
+          </button>
+          <ThemeToggle />
+        </nav>
       </div>
     </div>
   );

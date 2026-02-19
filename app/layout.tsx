@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
-import { Lora, Geist_Mono } from "next/font/google";
+import { DM_Sans, Geist_Mono } from "next/font/google";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { Toaster } from "@/components/ui/sonner";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
-const lora = Lora({
-  variable: "--font-lora",
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
 });
 
@@ -117,7 +117,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${lora.variable} ${geistMono.variable} bg-background antialiased`}
+        className={`${dmSans.variable} ${geistMono.variable} bg-background antialiased`}
       >
         <ThemeProvider>
           <Navbar />

@@ -52,7 +52,7 @@ const PRODUCTS = [
 
 export default function ProductsSection() {
   return (
-    <section className="flex flex-col items-center justify-center gap-20 lg:px-32 px-6 w-full py-28">
+    <section id="produtos" className="flex flex-col items-center justify-center gap-20 lg:px-32 px-6 w-full py-28">
       {/* Cabeçalho da secção */}
       <div className="flex flex-col items-center gap-6 max-w-3xl text-center">
         <RevealOnScroll delay={0}>
@@ -116,7 +116,10 @@ export default function ProductsSection() {
               {/* Lista de casos de uso */}
               <div className="flex-1 mb-6 space-y-2.5">
                 {product.useCases.map((uc, j) => (
-                  <div key={j} className="flex gap-2.5 text-sm text-foreground/75">
+                  <div
+                    key={j}
+                    className="flex gap-2.5 text-sm text-foreground/75"
+                  >
                     <Check
                       className="w-4 h-4 shrink-0 mt-0.5 text-yellow/70"
                       strokeWidth={2.5}
@@ -136,7 +139,7 @@ export default function ProductsSection() {
       </div>
 
       {/* CTA final */}
-      <RevealOnScroll delay={0.4}>
+      <RevealOnScroll delay={0.1}>
         <div className="flex flex-col items-center gap-5 text-center">
           <p className="text-foreground/55 text-lg max-w-md">
             Pronto para automatizar? Fala connosco e mostramos como funciona

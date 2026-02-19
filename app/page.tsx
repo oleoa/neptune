@@ -6,7 +6,7 @@ import ProductsSection from "@/components/ProductsSection";
 export default function Home() {
   return (
     <main className="[&>div]:px-32">
-      <section className="relative flex flex-col items-center justify-center gap-8 min-h-screen">
+      <section id="inicio" className="relative flex flex-col items-center justify-center gap-8 min-h-screen">
         <ElevenLabs />
 
         <div className="relative z-10 flex flex-col items-center gap-8 lg:px-32 px-6">
