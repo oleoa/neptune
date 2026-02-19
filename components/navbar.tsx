@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { useTheme } from "./theme-provider";
 
 function scrollToSection(id: string) {
@@ -15,6 +16,8 @@ function scrollToSection(id: string) {
 export default function Navbar() {
   const { isDark } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   function handleNav(id: string) {
     setIsOpen(false);
@@ -23,7 +26,7 @@ export default function Navbar() {
 
   return (
     <div className="fixed top-0 left-0 w-full z-50">
-      <div className="flex justify-between items-center lg:px-32 px-6 w-full backdrop-blur-xl border-b border-black/8 dark:border-yellow bg-white/80 dark:bg-transparent h-20">
+      <div className="flex justify-between items-center md:px-32 px-6 w-full backdrop-blur-xl border-b border-black/8 dark:border-yellow bg-white/80 dark:bg-transparent h-20">
         <Link href="/">
           <Image
             src={
@@ -38,42 +41,46 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop nav */}
-        <nav className="hidden lg:flex items-center gap-8">
-          <button
-            onClick={() => scrollToSection("inicio")}
-            className="text-sm font-medium hover:text-yellow transition-colors"
-          >
-            Início
-          </button>
-          <button
-            onClick={() => scrollToSection("como-funciona")}
-            className="text-sm font-medium hover:text-yellow transition-colors"
-          >
-            Como funciona
-          </button>
-          <button
-            onClick={() => scrollToSection("produtos")}
-            className="text-sm font-medium hover:text-yellow transition-colors"
-          >
-            Produtos
-          </button>
-        </nav>
+        {isHome && (
+          <nav className="hidden md:flex items-center gap-8">
+            <button
+              onClick={() => scrollToSection("inicio")}
+              className="text-sm font-medium hover:text-yellow transition-colors"
+            >
+              Início
+            </button>
+            <button
+              onClick={() => scrollToSection("como-funciona")}
+              className="text-sm font-medium hover:text-yellow transition-colors"
+            >
+              Como funciona
+            </button>
+            <button
+              onClick={() => scrollToSection("produtos")}
+              className="text-sm font-medium hover:text-yellow transition-colors"
+            >
+              Produtos
+            </button>
+          </nav>
+        )}
 
         {/* Mobile controls */}
-        <div className="flex lg:hidden items-center gap-4">
-          <button
-            onClick={() => setIsOpen((prev) => !prev)}
-            aria-label="Abrir menu"
-            className="text-2xl hover:text-yellow transition-colors"
-          >
-            {isOpen ? "✕" : "☰"}
-          </button>
-        </div>
+        {isHome && (
+          <div className="flex md:hidden items-center gap-4">
+            <button
+              onClick={() => setIsOpen((prev) => !prev)}
+              aria-label="Abrir menu"
+              className="text-2xl hover:text-yellow transition-colors"
+            >
+              {isOpen ? "✕" : "☰"}
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Mobile dropdown */}
-      {isOpen && (
-        <div className="lg:hidden flex flex-col gap-4 px-6 py-6 backdrop-blur-xl border-b border-black/8 dark:border-yellow bg-white/80 dark:bg-transparent">
+      {isHome && isOpen && (
+        <div className="md:hidden flex flex-col gap-4 px-6 py-6 backdrop-blur-xl border-b border-black/8 dark:border-yellow bg-white/80 dark:bg-transparent">
           <button
             onClick={() => handleNav("inicio")}
             className="text-sm font-medium hover:text-yellow transition-colors text-left"

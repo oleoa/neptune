@@ -27,7 +27,7 @@ export default function HowItWorks() {
   return (
     <section
       id="como-funciona"
-      className="relative flex flex-col items-center justify-center gap-20 lg:px-32 px-6 w-full py-28"
+      className="relative flex flex-col items-center justify-center gap-20 md:px-32 px-6 w-full py-28"
       style={{ background: "var(--section-how-bg)" }}
     >
       {/* Header */}

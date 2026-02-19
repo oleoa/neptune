@@ -14,9 +14,9 @@ export default function Home() {
       >
         <ElevenLabs />
 
-        <div className="relative z-10 flex flex-col items-center gap-8 lg:px-32 px-6">
+        <div className="relative z-10 flex flex-col items-center gap-8 md:px-32 px-6">
           <RevealOnScroll delay={0}>
-            <h1 className="lg:text-6xl text-4xl text-center font-bold">
+            <h1 className="md:text-6xl text-4xl text-center font-bold">
               <span className="text-yellow">Automação com AI</span>
               <br />
               Escale sem aumentar equipe

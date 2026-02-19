@@ -1,6 +1,6 @@
 "use client";
 
-import { Filter, MessageSquare, Settings2, Check } from "lucide-react";
+import { Filter, MessageSquare, Settings2, Star, Check } from "lucide-react";
 import RevealOnScroll from "./RevealOnScroll";
 import Actions from "./Actions";
 
@@ -21,8 +21,22 @@ const PRODUCTS = [
       "Reduz a carga de suporte em até 70%. Respostas em segundos, a qualquer hora.",
   },
   {
-    Icon: Filter,
+    Icon: Star,
     number: "02",
+    title: "Google Reviews com IA",
+    description:
+      "Agente de IA que envia follow-ups automáticos após o serviço, no momento certo, e converte clientes satisfeitos em reviews públicas no Google.",
+    useCases: [
+      "Follow-ups personalizados via WhatsApp, SMS ou e-mail",
+      "Alertas instantâneos para novas reviews — reage em minutos, não dias",
+      "Link direto para a página de review do Google",
+    ],
+    benefit:
+      "Mais reviews positivos, sem esforço da tua equipa. A tua reputação online cresce sozinha.",
+  },
+  {
+    Icon: Filter,
+    number: "03",
     title: "Direção & Qualificação de Leads",
     description:
       "Sistemas automatizados que captam, filtram e qualificam leads em tempo real — sem intervenção humana. O teu funil trabalha 24/7.",
@@ -36,7 +50,7 @@ const PRODUCTS = [
   },
   {
     Icon: Settings2,
-    number: "03",
+    number: "04",
     title: "Automação de Processos Internos",
     description:
       "Fluxos de trabalho automatizados que eliminam tarefas repetitivas — desde relatórios e faturação até gestão de dados e notificações.",
@@ -54,7 +68,7 @@ export default function ProductsSection() {
   return (
     <section
       id="produtos"
-      className="flex flex-col items-center justify-center gap-20 lg:px-32 px-6 w-full py-28"
+      className="flex flex-col items-center justify-center gap-20 md:px-32 px-6 w-full py-28"
       style={{ background: "var(--section-products-bg)" }}
     >
       {/* Cabeçalho da secção */}
@@ -79,7 +93,7 @@ export default function ProductsSection() {
       </div>
 
       {/* Cards de produto — grid 1→3 colunas */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 w-full max-w-7xl">
         {PRODUCTS.map((product, i) => (
           <RevealOnScroll key={i} delay={0.1 + i * 0.1}>
             <div
