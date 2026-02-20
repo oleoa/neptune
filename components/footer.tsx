@@ -7,6 +7,12 @@ export default function Footer() {
         <p className="text-xs text-gray">
           Leonardo Abreu de Paulo @ 2026. Todos os direitos reservados.
         </p>
+        <a
+          href="mailto:leonardo@estrutura.ai"
+          className="text-xs text-gray underline underline-offset-4"
+        >
+          leonardo@estrutura.ai
+        </a>
       </div>
       <div></div>
     </div>
